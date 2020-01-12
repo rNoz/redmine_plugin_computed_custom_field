@@ -5,6 +5,8 @@
 [![Build Status](https://travis-ci.org/annikoff/redmine_plugin_computed_custom_field.svg?branch=master)](https://travis-ci.org/annikoff/redmine_plugin_computed_custom_field)
 [![Code Climate](https://codeclimate.com/github/annikoff/redmine_plugin_computed_custom_field/badges/gpa.svg)](https://codeclimate.com/github/annikoff/redmine_plugin_computed_custom_field)
 
+Check the section `rNoz changes` to see the differences.
+
 ### Description:
 
 This plugin provides a possibility to create a computed custom field.
@@ -106,6 +108,30 @@ To write formulas this documentation can be helpful:
 - [Document](http://www.rubydoc.info/github/edavis10/redmine/Document)
 - [TimeEntryActivity, IssuePriority, DocumentCategory](http://www.rubydoc.info/github/edavis10/redmine/Enumeration)
 
+### rNoz changes
+
+Added `cfv` (CustomFieldValue) as local variable to be accessible from the formula.
+
+Thanks to this, we can use more interesting formulas, like:
+
+```
+Name: Initial estimated time
+Description:
+  Estimated time in hours originally assigned.
+  This field can be reset if estimated time is cleared first.
+Required: yes
+Computed: yes
+Formula:
+  if cfv && cfv.value_was
+    value = cfv.value_was.to_f
+  end
+  est = self.estimated_hours
+  if est
+    (value > 0.0 && value || est)
+  else
+    nil
+  end
+```
 
 ### Getting help
 

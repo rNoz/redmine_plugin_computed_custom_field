@@ -18,6 +18,7 @@ module ComputedCustomField
     # rubocop:disable Lint/UselessAssignment, Security/Eval
     def eval_computed_field(custom_field)
       cfs = parse_computed_field_formula custom_field.formula
+      cfv = @grouped_cfvs[custom_field.id][0]
       value = eval custom_field.formula
       self.custom_field_values = {
         custom_field.id => prepare_computed_value(custom_field, value)

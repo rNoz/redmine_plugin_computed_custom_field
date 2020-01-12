@@ -30,6 +30,7 @@ module ComputedCustomField
         cfs = cf_ids.each_with_object({}) do |cf_id, hash|
           hash[cf_id] = grouped_cfs[cf_id].first.cast_value '1'
         end
+        cfv = CustomFieldValue.new()
         eval record.formula
       end
     end
