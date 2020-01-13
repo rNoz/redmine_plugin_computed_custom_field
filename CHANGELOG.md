@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.0.8](https://github.com/rNoz/redmine_plugin_computed_custom_field/releases/tag/v1.0.8) - 2020-01-13
+### Added
+- cfv as local variable to access its own value (CustomFieldValue)
+
 ## [1.0.7](https://github.com/annikoff/redmine_plugin_computed_custom_field/releases/tag/v1.0.7) - 2019-01-13
 ### Added
 - Redmine 4.0.x support.

@@ -39,10 +39,8 @@ If you need to upgrade from older versions, please check out migration section.
 Clone from GitHub
 ```sh
 # Latest version
-git clone https://github.com/annikoff/redmine_plugin_computed_custom_field.git computed_custom_field
+git clone https://github.com/rNoz/redmine_plugin_computed_custom_field.git computed_custom_field
 ```
-
-Or download [ZIP-archive](https://github.com/annikoff/redmine_plugin_computed_custom_field/archive/master.zip) and extract it into "computed_custom_field" directory.
 
 Run migrations
 ```sh
@@ -122,15 +120,18 @@ Description:
 Required: yes
 Computed: yes
 Formula:
-  if cfv && cfv.value_was
-    value = cfv.value_was.to_f
-  end
-  est = self.estimated_hours
-  if est
-    (value > 0.0 && value || est)
-  else
-    nil
-  end
+```
+
+```rb
+if cfv && cfv.value_was
+  value = cfv.value_was.to_f
+end
+est = self.estimated_hours
+if est
+  (value > 0.0 && value || est)
+else
+  nil
+end
 ```
 
 ### Getting help
