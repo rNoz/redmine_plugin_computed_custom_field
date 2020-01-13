@@ -128,7 +128,7 @@ if cfv && cfv.value_was
 end
 est = self.estimated_hours
 if est
-  (value > 0.0 && value || est)
+  (value && value > 0.0 && value || est)
 else
   nil
 end
